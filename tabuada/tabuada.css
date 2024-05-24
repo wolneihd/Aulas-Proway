@@ -1,0 +1,38 @@
+body {
+	font-family: arial;
+}
+
+h1 {
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin-left: 50px;
+	margin-right: 50px;	
+	padding: 20px;
+}
+
+#lbl_valor {
+	background-color: white;
+	margin-left: 45%;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#entry_valor {
+	font-size: 25px;
+	text-align: right;
+	width: 75px;
+}
+
+#btn_clique {
+	margin-left: 45%;
+	width: 160px;
+	height: 60px;
+	font-size: 20px;
+}
+
+.valor_tabuada {
+	background-color: white;
+	text-align: center;
+	font-size: 15px;
+}
