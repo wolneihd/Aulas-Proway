@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" type="text/css">
+</head>
+
+<body>
+    <header id="cabecalho">
+        <h1 id="titulo-principal">Dashboard de Desempenho</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Página Inicial</a>
+                    </li>
+                    <li>
+                        <a href="#">Relatórios</a>
+                    </li>
+                    <li>
+                        <a href="#">Gráficos</a>
+                    </li>
+                    <li>
+                        <a href="#">Configurações</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main id="corpo">
+            <section class="cards">
+                <div class="card">
+                    <h2>Desempenho do Mês</h2>
+                    <svg width="500" height="200">
+                        <rect x="10" y="10" width="50" height="180" fill="blue"></rect>
+                        <rect x="70" y="50" width="50" height="140" fill="green"></rect>
+                        <rect x="130" y="90" width="50" height="100" fill="yellow"></rect>
+                        <rect x="190" y="130" width="50" height="60" fill="purple"></rect>
+                    </svg>
+                </div>
+                <div class="card">
+                    <h2>Meta Anual</h2>
+                    <p>Estamos 70% da meta!</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>Últimas Atividades</h2>
+                    <ul>
+                        <li>Reunião com cliente.</li>
+                        <li>Envio de relatório mensal.</li>
+                        <li>Atualizações do projeto Y.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer id="rodape">
+        <p>&copy; 2024 Dashboard. Desenvolvido por Wolnei Hellman Dircksen.</p>
+    </footer>
+</body>
+
+</html>
