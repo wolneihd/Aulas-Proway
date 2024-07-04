@@ -1,0 +1,41 @@
+body {
+  font-family: monospace;
+  background-color: #c4c9cc;
+  color: #6c757d;
+}
+
+.cabecalho .container {
+  background-color: #007bff;
+  color: #6c757d;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+  font-size: 24px;
+}
+
+.cabecalho nav ul {
+  list-style: none;
+}
+
+.cabecalho nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.cabecalho nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.cabecalho nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #868e96;
+  color: orange;
+  text-align: center;
+  padding: 20px;
+}/*# sourceMappingURL=pagina.css.map */

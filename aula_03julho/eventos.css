@@ -1,0 +1,21 @@
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+button:hover {
+  background-color: #11c73b;
+  cursor: pointer;
+}
+
+.input-field {
+  width: 30%;
+  padding: 20px;
+  font-size: 18px;
+}
+.input-field:focus {
+  outline: none;
+  border-color: red;
+}/*# sourceMappingURL=eventos.css.map */

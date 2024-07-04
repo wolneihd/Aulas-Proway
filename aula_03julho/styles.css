@@ -1,0 +1,24 @@
+.container {
+  background-color: #007bff;
+  margin: 0;
+  font-size: 18px;
+}
+
+body {
+  background-color: #6c757d;
+}
+
+h1 {
+  color: #f8f9fa;
+}
+
+p {
+  color: #f8f9fa;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #007bff;
+  border-radius: 45px;
+}/*# sourceMappingURL=styles.css.map */

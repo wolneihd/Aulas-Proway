@@ -1,0 +1,33 @@
+$primary-color: rgb(191, 86, 86);
+$second-color: rgb(73, 73, 200);
+$content-padding: 21px;
+
+header {
+    background-color: $primary-color;
+    padding: $content-padding;
+    color: white;
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .container {
+        background-color: purple;
+
+        nav {
+            background-color: gray;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 15px;
+
+                a {
+                    color: pink;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

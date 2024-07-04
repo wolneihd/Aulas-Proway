@@ -1,0 +1,24 @@
+header {
+  background-color: rgb(191, 86, 86);
+  padding: 21px;
+  color: white;
+}
+header h1 {
+  font-size: 45px;
+}
+header .container {
+  background-color: purple;
+}
+header .container nav {
+  background-color: gray;
+}
+header .container nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px;
+}
+header .container nav ul a {
+  color: pink;
+  text-decoration: none;
+}/*# sourceMappingURL=aninhamento.css.map */
