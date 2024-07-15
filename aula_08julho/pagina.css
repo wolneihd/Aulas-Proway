@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.cabecalho {
+  background-color: #3498db;
+  padding: 10px 0;
+}
+.cabecalho .menu ul {
+  list-style-type: none;
+  text-align: center;
+}
+.cabecalho .menu ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.cabecalho .menu ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.cabecalho .menu ul li a:hover {
+  background-color: #5faee3;
+}
+.cabecalho .menu ul li a:active {
+  position: relative;
+  top: 1px;
+  box-shadow: 0px 0px 5px #02090e;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: justify;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.container .section {
+  margin-bottom: 40px;
+}
+.container .section h2 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+.container .section p {
+  text-indent: 20px;
+}
+.container .section button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3 ease;
+  cursor: pointer;
+}
+.container .section button:hover {
+  background-color: #25a25a;
+}
+.container .section button:active {
+  position: relative;
+  top: 1px;
+  box-shadow: 0 0 5px rgba 0, 0, 0, 0.1;
+}
+.container .section form input,
+.container .section form textarea,
+.container .section form button {
+  display: block;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}/*# sourceMappingURL=pagina.css.map */
