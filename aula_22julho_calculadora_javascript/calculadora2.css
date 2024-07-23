@@ -1,0 +1,19 @@
+
+
+button {
+    width: 50px;
+}
+
+.botao_0 {
+    margin-left: 50px;
+}
+
+.container {
+    display: flex;
+}
+
+.botoes-operacoes {
+    margin: 10px;
+    display: grid;
+    gap: 5px;
+}

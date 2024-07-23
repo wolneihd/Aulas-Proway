@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora2.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora</h1>
+    </header>
+    <div class="entrada-valores">
+        <p id="tela-provisoria"></p>
+        <input type="number" placeholder="digite o valor" id="valor">
+    </div>
+    <div class="container">
+        <br>
+        <div class='numeros'>
+            <br>
+            <button onclick="getValue_1()">1</button>
+            <button onclick="getValue_2()">2</button>
+            <button onclick="getValue_3()">3</button><br><br>
+            <button onclick="getValue_4()">4</button>
+            <button onclick="getValue_5()">5</button>
+            <button onclick="getValue_6()">6</button><br><br>
+            <button onclick="getValue_7()">7</button>
+            <button onclick="getValue_8()">8</button>
+            <button onclick="getValue_9()">9</button><br><br>
+            <button class='botao_0' onclick="getValue_0()">0</button>
+        </div> <br>
+        <div class="botoes-operacoes">
+            <button class='botao' onclick="somar()">+</button>
+            <button class='botao' onclick="subtrair()">-</button>
+            <button class='botao' onclick="dividir()">/</button>
+            <button class='botao' onclick="multiplicar()">x</button>
+            <button class='botao' onclick="resultado()">=</button>
+            <button class='botao' onclick="limpar()">CE</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="calculadora2.js"></script>
+
+</body>
+
+</html>
