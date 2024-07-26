@@ -1,0 +1,82 @@
+.container {
+    margin: 200px;
+    height: 300px;
+    width: 300px;
+    background-color: gray;
+    animation: mudarTamanho 2s infinite alternate;
+}
+
+@keyframes mudarTamanho {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(2);
+    }
+}
+
+.container2 {
+    margin: 300px;
+    height: 300px;
+    width: 300px;
+    background-color: gray;
+    animation: mudarCor 2s infinite alternate;
+}
+
+@keyframes mudarCor {
+    0% {
+        background-color: yellow;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+.container3 {
+    margin: 300px;
+    height: 300px;
+    width: 300px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+
+}
+
+.container3:hover {
+    animation: mudarOpacidade 2s infinite alternate;
+}
+
+@keyframes mudarOpacidade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.container4 {
+    margin: 300px;
+    height: 300px;
+    width: 300px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    background-color: gray;
+
+}
+
+.container4:hover {
+    animation: mudarOpacidade2 100ms infinite alternate;
+}
+
+@keyframes mudarOpacidade2 {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,110 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f0f0f0;
+$text-color: #333;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    line-height: 1.6;
+}
+
+.cabecalho {
+    background-color: $primary-color;
+    padding: 10px 0;
+
+    .menu {
+        ul {
+            list-style-type: none;
+            text-align: center;
+
+            li {
+                display: inline-block;
+                margin: 0 10px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: lighten($primary-color,10%);
+                    }
+
+                    &:active {
+                        position: relative;
+                        top: 1px;
+                        box-shadow: 0px 0px 5px darken($primary-color,50%)
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+    .section {
+        margin-bottom: 40px;
+
+        h2 {
+            color: $primary-color;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-indent: 20px;
+        }        
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: $secondary-color;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            transition: background-color 0.3 ease;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
+
+            &:active {
+                position: relative;
+                top: 1px;
+                box-shadow: 0 0 5px rgba (0,0,0,0.1);
+            }
+        }
+
+        form {
+            input, 
+            textarea, 
+            button {
+                display: block;
+                width: 98%;
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 16px;
+            }
+        }
+
+    }
+}
