@@ -1,0 +1,67 @@
+body {
+    background-color: gray;
+    font-weight: bold;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    font-family: monospace;
+    cursor: pointer;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: translateY(-20px);
+    }
+}
+
+.linear {
+    background-color: lightblue;
+
+    &:hover {
+        transform: rotate(45deg);
+        transition: transform 0.5s linear;
+    }
+}
+
+.ease-in {
+    background-color: beige;
+
+    &:hover {
+        transform: scale(1.4);
+        transition: transform 0.5s ease-in;
+    }
+}
+
+.ease-out {
+    background-color: lightgreen;
+
+    &:hover {
+        transform: skewX(30deg);
+        transform: transform 0.5s ease-out;
+    }
+}
+
+.ease-in-out {
+    background-color: lightsalmon;
+
+    &:hover {
+        transform: scaleX(1.2);
+        transition: transform .5s ease-in-out;
+    }
+}
+
+.custom-transition {
+    background-color: lightpink;
+    color: blue;
+
+    &:hover {
+        transform: rotate(-30deg) scale(1.5);
+        background-color: darken(lightpink,25%);
+        transition: all 2s ease;
+    }
+}

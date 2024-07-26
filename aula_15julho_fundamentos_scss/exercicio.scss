@@ -1,0 +1,72 @@
+* {
+    font-family: monospace;
+}
+
+.exercicio01, .exercicio02, .exercicio03, .exercicio04 {
+    margin-top: 5px;
+    background-color: gray;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+h2 {
+    margin: 10px;
+}
+
+#btn_01 {
+    width: 250px;
+    height: 50px;
+    border: none;
+    background-color: lightgreen;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 25px;
+
+    &:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease;
+    }
+}
+
+#caixa_02 {
+    width: 250px;
+    height: 50px;
+    margin-left: 25px;
+    background-color: lightsalmon;
+    border-radius: 10px;
+    transition: 1s linear;
+
+    &:hover {
+        transform: rotate(-180deg);
+        transition: 1s linear;
+    }
+}
+
+#caixa_03 {
+    width: 250px;
+    height: 50px;
+    margin-left: 25px;
+    background-color: blue;
+    border-radius: 10px;
+    transition: .5s ease-in-out;
+
+    &:active {
+        background-color: green;
+        transition: .5s ease;
+    }
+}
+
+#caixa_04 {
+    width: 250px;
+    height: 50px;
+    margin-left: 25px;
+    background-color: lightgray;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+        transform: scale(1.2);
+        transition: transform 0.5s ease;
+    }
+}
