@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h2 Página de cadastro
+  input(type='text' placeholder='Digite seu nome' id='nome')
+  br
+  input(type='number' placeholder='idade' id='idade')
+  br
+  button(onclick='enviar()') Enviar
+  div.resultado
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+  script(src='javascripts/functions.js')

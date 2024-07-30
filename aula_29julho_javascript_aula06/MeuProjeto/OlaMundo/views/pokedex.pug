@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    input(type='text' id='nome')
+    button(onclick='buscarPokemon()') Buscar
+    div.pokemon
+    p(id='nome-pokemon')
+    p(id='numero-pokemon')
+    p(id='tipo-pokemon')
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    script(src='javascripts/functions.js')

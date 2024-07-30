@@ -1,0 +1,14 @@
+{
+  "name": "aula_29julho_javascript_aula06",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wolnei",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express-generator": "^4.16.1"
+  }
+}
