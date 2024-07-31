@@ -1,0 +1,14 @@
+- abstração;
+- herança;
+    - reutilização de código.
+- encapsulamento;
+    - getter/setters.
+- poliformismo;
+    - métodos, conforme a classe, pode precisar de diferentes argumentos.
+
+>>> códigos:
+
+npm init -y
+npm install typescript -D
+npx tsc -v
+npx tsc --init
