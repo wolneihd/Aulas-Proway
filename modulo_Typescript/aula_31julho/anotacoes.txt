@@ -12,3 +12,6 @@ npm init -y
 npm install typescript -D
 npx tsc -v
 npx tsc --init
+
+npx tsc hello.ts
+node .\hello.js
