@@ -47,5 +47,5 @@ switch (mes) {
 
 console.log(`\nOlá, meu nome é ${nome}.`);
 console.log(`Meu código de aluno ${codigo}.`);
-console.log(`Atualmente estou estudando no SUPERDEV? ${true ? "Verdadeiro" : "Falso"}`);
+console.log(`Atualmente estou estudando no SUPERDEV? ${cadastro ? "Verdadeiro" : "Falso"}`);
 console.log(`Sabendo que estamos no mês ${mes}, posso dizer que é ${texto_mes}.\n`)

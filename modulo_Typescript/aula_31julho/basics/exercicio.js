@@ -44,5 +44,5 @@ switch (mes) {
 }
 console.log("\nOl\u00E1, meu nome \u00E9 ".concat(nome, "."));
 console.log("Meu c\u00F3digo de aluno ".concat(codigo, "."));
-console.log("Atualmente estou estudando no SUPERDEV? ".concat(true ? "Verdadeiro" : "Falso"));
+console.log("Atualmente estou estudando no SUPERDEV? ".concat(cadastro ? "Verdadeiro" : "Falso"));
 console.log("Sabendo que estamos no m\u00EAs ".concat(mes, ", posso dizer que \u00E9 ").concat(texto_mes, ".\n"));
