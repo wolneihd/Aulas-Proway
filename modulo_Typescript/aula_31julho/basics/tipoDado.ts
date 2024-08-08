@@ -59,9 +59,11 @@ harryPotter.forEach(exibirNome);
 
 // Quantidade de Hermione:
 var quantidadeHermione: number = 0;
-harryPotter.forEach((nome) => {
+var posicaoHermione: number[] = [];
+harryPotter.forEach((nome,pos) => {
     if (nome === "Hermione") {
         quantidadeHermione++;
+        posicaoHermione.push(pos);
     }
 })
-console.log(`Quantidade nomes Hermione: ${quantidadeHermione}.`)
+console.log(`Quantidade nomes Hermione: ${quantidadeHermione} - nas posições: ${posicaoHermione.toString()}.`)

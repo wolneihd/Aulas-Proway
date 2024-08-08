@@ -52,9 +52,11 @@ function exibirNome(nome, pos) {
 harryPotter.forEach(exibirNome);
 // Quantidade de Hermione:
 var quantidadeHermione = 0;
-harryPotter.forEach(function (nome) {
+var posicaoHermione = [];
+harryPotter.forEach(function (nome, pos) {
     if (nome === "Hermione") {
         quantidadeHermione++;
+        posicaoHermione.push(pos);
     }
 });
-console.log("Quantidade nomes Hermione: ".concat(quantidadeHermione, "."));
+console.log("Quantidade nomes Hermione: ".concat(quantidadeHermione, " - nas posi\u00E7\u00F5es: ").concat(posicaoHermione.toString(), "."));
