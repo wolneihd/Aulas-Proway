@@ -11,12 +11,12 @@ function exibirNome(): void {
 
     // opção 02 >> imprime no body o valor do input.
     const input_nome = document.querySelector<HTMLInputElement>('#nome');
+    var mostrarTexto = document.getElementById('mostrarTexto') as HTMLDivElement;
     if (input_nome) {
-        const newElement = document.createElement('p');
-        newElement.textContent = input_nome.value;
-        document.body.appendChild(newElement);
+        console.log(input_nome);
+        mostrarTexto.innerHTML = `Seu nome é ${input_nome.value}`;
     } else {
-        console.error('Não foi possível encontrar os elementos especificados.');
+        mostrarTexto.innerHTML = `Campo nome está vazio!`;
     }
 };
 
@@ -25,11 +25,14 @@ function validar(): void {
     var container = document.getElementById('resultado') as HTMLDivElement;
     var numero = Number(htmlInput?.value);
     if (numero % 2 == 0) {
-        const newElement = document.createElement('p');
-        newElement.textContent = String(numero);
         container.innerHTML = `Este número ${numero} é par!`;
-        console.log('teste');
+        container.style.backgroundColor = 'green';
+        container.style.textAlign = 'right';
+        container.style.fontSize = '35px';
     } else {
-        console.log('impar')
+        container.innerHTML = `Este número ${numero} é impar!`;
+        container.style.backgroundColor = 'red';
+        container.style.textAlign = 'left';
+        container.style.fontSize = '35px';
     }
 }
