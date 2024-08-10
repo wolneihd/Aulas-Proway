@@ -21,7 +21,7 @@ function exibirNome(): void {
 };
 
 function validar(): void {
-    var htmlInput = document.querySelector<HTMLInputElement>('#numero');
+    var htmlInput = document.getElementById('numero') as HTMLInputElement;
     var container = document.getElementById('resultado') as HTMLDivElement;
     var numero = Number(htmlInput?.value);
     if (numero % 2 == 0) {

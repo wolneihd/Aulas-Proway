@@ -20,7 +20,7 @@ function exibirNome() {
 }
 ;
 function validar() {
-    var htmlInput = document.querySelector('#numero');
+    var htmlInput = document.getElementById('numero');
     var container = document.getElementById('resultado');
     var numero = Number(htmlInput === null || htmlInput === void 0 ? void 0 : htmlInput.value);
     if (numero % 2 == 0) {
