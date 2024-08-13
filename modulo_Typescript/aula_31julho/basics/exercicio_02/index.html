@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="ficha-cadastro">
+        <input type="number" placeholder="Digite o ID do aluno" id="idAluno">
+        <input type="text" id="nome" placeholder="Digite o nome do aluno">
+        <div class="box-input">
+            <label>Matricula</label>
+            <input type="checkbox" id="matricula">
+        </div>
+        <div class="box-input">
+            <label for="periodo">Periodo</label>
+            <select name="periodo" id="periodo">
+                <option value="manha">Matutino</option>
+                <option value="tarde">Vespertino</option>
+                <option value="noite">Noturno</option>
+            </select>
+        </div>
+        <div class="ficha-cadastro notas">
+            <input type="number" placeholder="nota 01" id="nota01">
+            <input type="number" placeholder="nota 02" id="nota02">
+            <input type="number" placeholder="nota 03" id="nota03">
+        </div>
+        <button onclick="validar()" type="submit">Validar</button>
+    </div>
+    <hr>
+    <div>
+        <table id="new-row">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Matricula</th>
+                <th>Periodo</th>
+                <th>Nota 01</th>
+                <th>Nota 02</th>
+                <th>Nota 03</th>
+                <th>Média</th>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
