@@ -33,6 +33,16 @@ th {
 
 button {
     padding: 10px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
+    width: 150px;
+    border-radius: 15px;
+    border: solid 1px lightblue;
+    color: blue;
+}
+
+button:hover {
+    background-color: lightskyblue;
+    border: solid 1px blue;
+    cursor: pointer;
 }

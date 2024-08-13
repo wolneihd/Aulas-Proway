@@ -1,14 +1,16 @@
 const listaAlunos: any[] = [];
+var idAluno: number = 0;
 
 function validar() {
-    const id_aluno = document.querySelector<HTMLInputElement>('#idAluno');
+    //const id_aluno = document.querySelector<HTMLInputElement>('#idAluno');
     const nome = document.querySelector<HTMLInputElement>('#nome');
     const matricula = getCheckbox();
     const periodo = getSelectbox();
     const notas = getNotas();
+    idAluno++;
 
     const aluno = {
-        id: id_aluno?.value,
+        id: idAluno,
         nome: nome?.value,
         matricula: matricula,
         periodo: periodo,
@@ -16,6 +18,8 @@ function validar() {
         notas02: notas[1],
         notas03: notas[2],
     }
+
+    console.log(aluno);
 
     const newRow = document.getElementById('new-row') as HTMLTableRowElement;
     newRow.innerHTML += `

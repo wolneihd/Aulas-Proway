@@ -1,13 +1,15 @@
 var listaAlunos = [];
+var idAluno = 0;
 function validar() {
     var _a;
-    var id_aluno = document.querySelector('#idAluno');
+    //const id_aluno = document.querySelector<HTMLInputElement>('#idAluno');
     var nome = document.querySelector('#nome');
     var matricula = getCheckbox();
     var periodo = getSelectbox();
     var notas = getNotas();
+    idAluno++;
     var aluno = {
-        id: id_aluno === null || id_aluno === void 0 ? void 0 : id_aluno.value,
+        id: idAluno,
         nome: nome === null || nome === void 0 ? void 0 : nome.value,
         matricula: matricula,
         periodo: periodo,
@@ -15,6 +17,7 @@ function validar() {
         notas02: notas[1],
         notas03: notas[2],
     };
+    console.log(aluno);
     var newRow = document.getElementById('new-row');
     newRow.innerHTML += "\n    <tr>\n        <td>".concat(aluno.id, "</td>\n        <td>").concat((_a = aluno.nome) === null || _a === void 0 ? void 0 : _a.toUpperCase(), "</td>\n        <td>").concat(aluno.matricula ? "ATIVO" : 'NÃO ATIVO', "</td>\n        <td>").concat(aluno.periodo.toUpperCase(), "</td>\n        <td>").concat(aluno.notas01, "</td>\n        <td>").concat(aluno.notas02, "</td>\n        <td>").concat(aluno.notas03, "</td>   \n        <td>").concat((aluno.notas01 + aluno.notas02 + aluno.notas03) / 3, "</td> \n    </tr> \n    ");
 }
