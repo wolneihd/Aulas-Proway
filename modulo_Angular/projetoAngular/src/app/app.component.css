@@ -1,0 +1,30 @@
+.cabecalho {
+    background-color: #2596be;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+.galeria {
+    width: 98%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    padding: 16px;
+}
+
+.rodape {
+    position: relative; /* Fixa o rodapé na parte inferior */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Faz o rodapé ocupar a largura total da viewport */
+    height: 60px; /* Altura do rodapé */
+    background-color: #2596be; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    line-height: 60px; /* Centraliza verticalmente o texto */
+    /* Adicione outros estilos conforme necessário */
+  }

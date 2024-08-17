@@ -1,0 +1,23 @@
+<div class="card-aluno" (click)="funcaoTeste()">
+    <div class="imagem">
+        <img src="../../../assets/imagens/imagem-avatar.jpg"
+            alt="logo-aluno">
+    </div>
+    <div class="nome">
+        <p>{{estudante.nome}}</p>
+    </div>
+    <div class="dados">
+        <p>
+            <strong>Curso:</strong> {{estudante.curso}}
+        </p>
+        <p>
+            <strong>Matricula:</strong> {{estudante.matricula}}
+        </p>
+        <p>
+            <strong>Status:</strong> {{estudante.status ? "ATIVO" : "INATIVO"}}
+        </p>
+        <p>
+            <strong>Materias:</strong> {{estudante.materias}}
+        </p>
+    </div>
+</div>

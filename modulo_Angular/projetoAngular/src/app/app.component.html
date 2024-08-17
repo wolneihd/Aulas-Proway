@@ -1,7 +1,9 @@
-<p>Código: {{codigo}}</p>
-<p>Nome: {{nome}}</p>
-<p>Curso: {{curso}}</p>
-<p>Status: {{status}}</p>
+<div class="cabecalho">
+    <h1>Sistema Aluno PROWAY</h1>
+</div>
 
-<p>{{dados['nome']}}</p>
-<p>{{dados['idade']}}</p>
+<div class="galeria">
+    <app-estudante *ngFor="let estudante of listaEstudantes" [estudante]="estudante"></app-estudante>
+</div>
+
+<footer class="rodape">Desenvolvido &copy; 2024 Wolnei</footer>
