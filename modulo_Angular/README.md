@@ -32,4 +32,5 @@ npm config get prefix
 ### Iniciar projeto:
 ```
 ng new [project-name] --no-standalone
+ng generate component nome-componente
 ```

@@ -1,0 +1,18 @@
+<div class="lista">
+    <table>
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Curso</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let estudante of lista">
+            <td>{{estudante.matricula}}</td>
+            <td>{{estudante.nome}}</td>
+            <td>{{estudante.email}}</td>
+            <td>{{estudante.curso}}</td>
+            <td>{{estudante.status ? "Aprovado" : "Reprovado"}}</td>            
+        </tr>
+    </table>
+</div>

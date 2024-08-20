@@ -2,8 +2,13 @@
     <h1>Sistema Aluno PROWAY</h1>
 </div>
 
-<div class="galeria">
-    <app-estudante *ngFor="let estudante of listaEstudantes" [estudante]="estudante"></app-estudante>
-</div>
+<main>
+    <div class="galeria cards">
+        <app-estudante *ngFor="let estudante of listaEstudantes" [estudante]="estudante"></app-estudante>
+    </div>
+    <div class="galeria lista">
+        <app-estudante-lista [lista]="listaEstudantes"></app-estudante-lista>    
+    </div>
+</main>
 
 <footer class="rodape">Desenvolvido &copy; 2024 Wolnei</footer>

@@ -1,7 +1,6 @@
 <div class="card-aluno" (click)="funcaoTeste()">
     <div class="imagem">
-        <img src="../../../assets/imagens/imagem-avatar.jpg"
-            alt="logo-aluno">
+        <img src={{estudante.imagemPath}} alt="logo-aluno">
     </div>
     <div class="nome">
         <p>{{estudante.nome}}</p>
@@ -13,9 +12,14 @@
         <p>
             <strong>Matricula:</strong> {{estudante.matricula}}
         </p>
-        <p>
-            <strong>Status:</strong> {{estudante.status ? "ATIVO" : "INATIVO"}}
-        </p>
+        <div class="aprovacao" 
+            [ngStyle]="{'background-color': estudante.status == true ? 'green' : 'red'}">
+            <!-- [ngClass="{{estudante.status ? 'aprovado' : 'reprovado'}}"] -->
+            <p>
+                Status: {{estudante.status ? "Aprovado" : "Reprovado"}}
+            </p>
+        </div>
+
         <p>
             <strong>Materias:</strong> {{estudante.materias}}
         </p>
