@@ -1,6 +1,6 @@
 .cabecalho {
     background-color: #2596be;
-    display: flex;
+    display: grid;
     justify-content: center;
     padding: 15px;
     color: white;
@@ -11,20 +11,60 @@
     width: 98%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
     gap: 16px;
     padding: 16px;
 }
 
 .rodape {
-    position: relative; /* Fixa o rodapé na parte inferior */
+    position: relative;
+    /* Fixa o rodapé na parte inferior */
     bottom: 0;
     left: 0;
-    width: 100%; /* Faz o rodapé ocupar a largura total da viewport */
-    height: 60px; /* Altura do rodapé */
-    background-color: #2596be; /* Cor de fundo do rodapé */
-    color: #fff; /* Cor do texto */
-    text-align: center; /* Centraliza o texto */
-    line-height: 60px; /* Centraliza verticalmente o texto */
+    width: 100%;
+    /* Faz o rodapé ocupar a largura total da viewport */
+    height: 60px;
+    /* Altura do rodapé */
+    background-color: #2596be;
+    /* Cor de fundo do rodapé */
+    color: #fff;
+    /* Cor do texto */
+    text-align: center;
+    /* Centraliza o texto */
+    line-height: 60px;
+    /* Centraliza verticalmente o texto */
     /* Adicione outros estilos conforme necessário */
-  }
+}
+
+.cards {
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.caixa-inputs {
+    display: grid;
+    justify-content: center;
+    padding: 15px;
+}
+
+button {
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+button:hover {
+    background-color: gray;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+
+.radio {
+    margin-top: 10px;
+    width: 200px;
+    font-size: 20px;
+}

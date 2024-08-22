@@ -2,13 +2,23 @@
     <h1>Sistema Aluno PROWAY</h1>
 </div>
 
-<main>
-    <div class="galeria cards">
+<div class="master-data">
+    <div class="caixa-inputs">
+        <button (click)="inverterMostrador()">{{!btnMostrar ? 'MOSTRAR EM CARDs' : 'MOSTRAR EM LISTA'}}</button>
+        <div class="container-radio">
+            <select id="opcoes" name="opcoes" class="radio" (change)="onSelectChange($event)">
+                <option value="todos">Todos</option>
+                <option value="aprovados">Aprovados</option>
+                <option value="reprovados">Reprovados</option>
+            </select>
+        </div>
+    </div>
+    <div class="galeria cards" *ngIf=btnMostrar>
         <app-estudante *ngFor="let estudante of listaEstudantes" [estudante]="estudante"></app-estudante>
     </div>
-    <div class="galeria lista">
+    <div class="galeria" *ngIf=!btnMostrar>
         <app-estudante-lista [lista]="listaEstudantes"></app-estudante-lista>    
     </div>
-</main>
+</div>
 
 <footer class="rodape">Desenvolvido &copy; 2024 Wolnei</footer>

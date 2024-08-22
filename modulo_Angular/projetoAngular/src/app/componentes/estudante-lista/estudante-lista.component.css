@@ -6,17 +6,26 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: lightgray;
 }
 
 tr:hover {
-  background-color: #ddd;
+  background-color: blue;
+  color: white;
 }
 
 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: orange;
   color: white;
+}
+
+.aprovado {
+  background-color: lightgreen;
+}
+
+.reprovado {
+  background-color: coral;
 }

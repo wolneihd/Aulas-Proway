@@ -12,7 +12,7 @@
             <td>{{estudante.nome}}</td>
             <td>{{estudante.email}}</td>
             <td>{{estudante.curso}}</td>
-            <td>{{estudante.status ? "Aprovado" : "Reprovado"}}</td>            
+            <td ngClass="{{estudante.status ? 'aprovado':'reprovado'}}">{{estudante.status ? 'Aprovado' : "Reprovado"}}</td>            
         </tr>
     </table>
 </div>
