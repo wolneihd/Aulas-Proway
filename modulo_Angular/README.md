@@ -33,4 +33,5 @@ npm config get prefix
 ```
 ng new [project-name] --no-standalone
 ng generate component nome-componente
+ng serve
 ```

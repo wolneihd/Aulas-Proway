@@ -24,8 +24,30 @@ th {
 
 .aprovado {
   background-color: lightgreen;
+  color: black;
 }
 
 .reprovado {
   background-color: coral;
+  color: black;
+}
+
+.td-center-edit {
+  text-align: center;
+  color: green;
+}
+
+.td-center-edit:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.td-center-delete {
+  text-align: center;
+  color: red;
+}
+
+.td-center-delete:hover {
+  cursor: pointer;
+  color: white;
 }

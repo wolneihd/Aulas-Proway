@@ -4,7 +4,7 @@
 
 <div class="master-data">
     <div class="caixa-inputs">
-        <button (click)="inverterMostrador()">{{!btnMostrar ? 'MOSTRAR EM CARDs' : 'MOSTRAR EM LISTA'}}</button>
+        <button (click)="inverterMostrador()">{{btnMostrar ? 'MOSTRAR EM CARDs' : 'MOSTRAR EM LISTA'}}</button>
         <div class="container-radio">
             <select id="opcoes" name="opcoes" class="radio" (change)="onSelectChange($event)">
                 <option value="todos">Todos</option>
@@ -13,11 +13,15 @@
             </select>
         </div>
     </div>
-    <div class="galeria cards" *ngIf=btnMostrar>
+    <div class="galeria cards" *ngIf=!btnMostrar>
         <app-estudante *ngFor="let estudante of listaEstudantes" [estudante]="estudante"></app-estudante>
     </div>
-    <div class="galeria" *ngIf=!btnMostrar>
-        <app-estudante-lista [lista]="listaEstudantes"></app-estudante-lista>    
+    <div class="galeria" *ngIf=btnMostrar>
+        <div class="formulario">
+            <app-student-form [estudante]="this.aluno"></app-student-form>
+        </div>
+        <app-estudante-lista [lista]="listaEstudantes" (excluir)="excluirAluno($event)" (editar)="editarAluno($event)">
+        </app-estudante-lista>
     </div>
 </div>
 

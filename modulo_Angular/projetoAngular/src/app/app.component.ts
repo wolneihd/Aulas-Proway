@@ -7,7 +7,7 @@ import { Aluno } from './interface/Estudante';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent{
+export class AppComponent {
   data: any;
   loading = true;
   error: string | null = null;
@@ -35,7 +35,7 @@ export class AppComponent{
     },
     {
       nome: "Pedro Alberto",
-      matricula: 5678,
+      matricula: 6002,
       email: "pedro@proway.com",
       curso: "Python",
       status: true,
@@ -204,6 +204,9 @@ export class AppComponent{
     }
   ];
 
+  backupLista: Aluno[] = this.listaEstudantes;
+  novalistaEstudantes: Aluno[] = [];
+
   //Logic Select-box:
   onSelectChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
@@ -218,12 +221,10 @@ export class AppComponent{
     }
   }
 
-  backupLista: Aluno[] = this.listaEstudantes;
-  novalistaEstudantes: Aluno[] = [];
   gerarAprovados() {
     this.listaEstudantes = this.backupLista;
     this.novalistaEstudantes = [];
-    for(var i = 0;i<this.listaEstudantes.length;i++) {
+    for (var i = 0; i < this.listaEstudantes.length; i++) {
       if (this.listaEstudantes[i].status == true) {
         this.novalistaEstudantes.push(this.listaEstudantes[i])
       }
@@ -234,12 +235,40 @@ export class AppComponent{
   gerarReprovados() {
     this.listaEstudantes = this.backupLista;
     this.novalistaEstudantes = [];
-    for(var i = 0;i<this.listaEstudantes.length;i++) {
+    for (var i = 0; i < this.listaEstudantes.length; i++) {
       if (this.listaEstudantes[i].status == false) {
         this.novalistaEstudantes.push(this.listaEstudantes[i])
       }
     }
     this.listaEstudantes = this.novalistaEstudantes;
+  }
+
+  //excluir aluno:
+  excluirAluno(matricula: number) {
+    const indexAluno = this.backupLista.findIndex(estudante => {
+      return estudante.matricula == matricula;
+    })
+    console.log('Excluindo.. ', this.backupLista[indexAluno]);
+    if (indexAluno >= 0) {
+      this.backupLista.splice(indexAluno, 1);
+    }
+    this.listaEstudantes = this.backupLista;
+  }
+
+  //editar aluno:
+  aluno: Aluno = {
+    nome: '',
+    matricula: 0,
+    email: '',
+    curso: '',
+    status: false,
+    materias: [],
+    escola: undefined,
+    imagemPath: ''
+  }
+  editarAluno(estudante: any) {
+    console.log('Recebido no app.component EDITAR...', estudante);
+    this.aluno = estudante;
   }
 
   /*

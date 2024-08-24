@@ -6,13 +6,21 @@
             <th>E-mail</th>
             <th>Curso</th>
             <th>Status</th>
+            <th>Editar</th>
+            <th>Excluir</th>
         </tr>
         <tr *ngFor="let estudante of lista">
             <td>{{estudante.matricula}}</td>
             <td>{{estudante.nome}}</td>
             <td>{{estudante.email}}</td>
             <td>{{estudante.curso}}</td>
-            <td ngClass="{{estudante.status ? 'aprovado':'reprovado'}}">{{estudante.status ? 'Aprovado' : "Reprovado"}}</td>            
+            <td ngClass="{{estudante.status ? 'aprovado':'reprovado'}}">{{estudante.status ? 'Aprovado' : "Reprovado"}}</td>
+            <td class="td-center-edit" (click)="editarAluno(estudante)">
+                <mat-icon title="Editar">edit</mat-icon>
+            </td>    
+            <td class="td-center-delete" (click)="excluirAluno(estudante.matricula)">
+                <mat-icon title="Excluir">delete</mat-icon>
+            </td>     
         </tr>
     </table>
 </div>

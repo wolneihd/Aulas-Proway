@@ -1,0 +1,54 @@
+.form {
+    background-color: lightblue;
+    border-bottom: 1px solid;
+    display: grid;
+    justify-content: center;
+}
+
+h4 {
+    padding-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input {
+    font-size: 18px;
+}
+
+table {
+    border: 1px solid;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+td {
+    width: 200px;
+    text-align: center;
+}
+
+.label-radio {
+    margin-left: 10px;
+}
+
+.container-botoes {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.button {
+    width: 80px;
+    cursor: pointer;
+}
+
+.left {
+    display: flex;
+    justify-content: left;
+}
