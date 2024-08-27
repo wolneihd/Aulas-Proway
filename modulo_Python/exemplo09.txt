@@ -1,0 +1,8 @@
+def exemplo_pedido():
+    nome = input("Digite o nome do produto: ")
+    quantidade = int(input('Digite a quantidade: '))
+    preco_unitario = float(input('Digite o preço unitário: ').replace('R$ ','').replace('.','').replace(',','.'))
+    total = quantidade * preco_unitario
+    print('Total: ', total)
+
+exemplo_pedido()
