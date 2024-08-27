@@ -1,0 +1,24 @@
+# python fundamentos
+# Aula de 26 de Agosto
+
+nome = 'Wolnei Hellmann Dircksen'
+print(nome)
+print(type(nome))
+print(f'O nome salvo é {nome}')
+
+listaNomes = ['Wolnei','Hellmann','Dircksen']
+for nome in listaNomes:
+    print(nome)
+
+print(f'Soma 2+2: {2+2}')
+print(f'Subtrair 2-2: {2-2}')
+print(f'Multiplicar 2*2: {2*2}')
+print(f'Dividir 2/2: {2/2}')
+
+print('    *   ')
+print('   ***  ')
+print('  ***** ')
+print(' *******')
+print('*********')
+print('   ***')
+print('   ***')

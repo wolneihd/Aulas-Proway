@@ -1,0 +1,10 @@
+def exemplo_descobrir_percentual():
+    quantidade_total_produtos = 500
+    quantidade_rtx_4090 = 12
+    percentual = (quantidade_rtx_4090*100)/quantidade_total_produtos
+    print("Percentual RTX 4090: ", percentual)
+
+try:
+    exemplo_descobrir_percentual()
+except:
+    print('ERROR')

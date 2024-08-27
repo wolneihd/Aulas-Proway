@@ -1,0 +1,19 @@
+def exemplo01():
+    # str
+    nome = 'Batata'
+    print(nome, type(nome))
+    # int
+    quantidade = 80
+    print(quantidade, type(quantidade))
+    # float
+    preco_unitario = 5.2
+    print(preco_unitario, type(preco_unitario))
+    total = quantidade * preco_unitario
+
+    listaCases = ['camelCase', 'PascalCase', 'kebab-case','snake_case']
+    for case in listaCases:
+        print(case)
+
+if __name__ == "__main__":
+    exemplo01()
+

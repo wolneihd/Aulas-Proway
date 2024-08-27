@@ -1,0 +1,19 @@
+def substituir_data_completa():
+    data_texto = "Blumenau, 26 de agosto de 2024"
+    data_texto = data_texto.replace('Blumenau,','')
+    data_texto = data_texto.replace('agosto','08')
+    data_texto = data_texto.replace('de','/')
+    data_texto = data_texto.replace(' ','')
+    data_texto = data_texto.replace('.','')
+    print(data_texto)
+
+def obter_tamanho_string():
+    texto_flor = "A flor é vermelha "
+    print('Texto: ', texto_flor)
+
+    texto_flor = texto_flor.strip()
+    print('Tamanho: ', len(texto_flor))
+
+substituir_data_completa()
+obter_tamanho_string()
+

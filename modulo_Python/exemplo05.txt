@@ -1,0 +1,27 @@
+texto = '   Batatinha quande nassi e vivei  '
+
+# tirar espaçoes do começo:
+def remover_espacoes_comeco():
+    print(texto.lstrip())
+
+
+# tirar espaçoes do fim:
+def remover_espacoes_fim():
+    print(texto.rstrip())
+
+
+# tirar espaçoes do inicio e fim:
+def remover_espacoes_ambos():
+    print(texto.strip())
+
+
+# substiur palavras erradas:
+def substituir_texto():
+    texto_novo = texto.replace('nassi', 'nasci').replace('vivei', 'viveu')
+    print(texto_novo)
+
+# Chamar funcão:
+remover_espacoes_comeco()
+remover_espacoes_fim()
+remover_espacoes_ambos()
+substituir_texto()

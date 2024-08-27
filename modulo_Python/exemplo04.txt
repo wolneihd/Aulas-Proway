@@ -1,0 +1,14 @@
+def exemplo_entrada_dados01():
+    nome = input('Digite o nome: ')
+    sobrenome = input('Digite o sobrenome: ')
+    nome_completo = nome.upper() + " " + sobrenome.upper()
+    print(nome_completo)
+
+
+def exemplo_entrada_dados02():
+    numero01 = int(input('Digite um número 01: '))
+    numero02 = int(input('Digite um número 02: '))
+    print('Soma: ', numero01 + numero02)
+
+# exemplo_entrada_dados01()
+# exemplo_entrada_dados02()
