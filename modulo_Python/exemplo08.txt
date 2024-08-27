@@ -1,0 +1,6 @@
+def transformar_letra_maiuscula():
+    texto = "Olá mundo"
+    texto_caixa_aula = texto.upper()
+    print(texto_caixa_aula)
+
+transformar_letra_maiuscula()
