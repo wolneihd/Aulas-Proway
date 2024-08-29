@@ -76,12 +76,23 @@ def exemplo_condicao_usuario():
             return 'Usuário saiu!'
         lista_produtos.append(nome_produto)
 
-# chamando as funções:
 
-# exemplo_while01()
-# exemplo_while02()
-# resultado = exemplo_while_descobrir_media(5)
-# resultado = exemplo_maior_valor(5)
-# resultado = exemplo_menor_valor(5)
-resultado = exemplo_condicao_usuario()
-print(resultado)
+def tamanho_input():
+    indice = 0
+    while indice < 5:
+        nome = input(f'Digite o nome do jogo [{indice+1}/5]: ').strip()
+        if len(nome) >= 3 and len(nome) <= 50:
+            indice += 1
+        else:
+            print(f'Nome {nome} \nmenos de 3 ou mais de 50 caracteres!')
+        
+
+# chamando as funções:
+if __name__ == "__main__":
+    exemplo_while01()
+    exemplo_while02()
+    print(exemplo_while_descobrir_media(5))
+    print(exemplo_maior_valor(5))
+    print(exemplo_menor_valor(5))
+    print(exemplo_condicao_usuario())
+    tamanho_input()
