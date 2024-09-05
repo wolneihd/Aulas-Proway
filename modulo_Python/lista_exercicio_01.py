@@ -128,7 +128,9 @@ def exercicio_11(dia,mes,ano):
     print(f'dias: {((12 - mes) + ((ano_atual - 1 - ano - 1 )*12) + mes)*30} dias')
     print(f'dias: {(((12 - mes) + ((ano_atual - 1 - ano - 1 )*12) + mes)*30)*24} horas')
 
+
 # Chamando as funções:
+
 # exercicio_01(10)
 # exercicio_02(250,2,1.75)
 # exercicio_03(10,5)
