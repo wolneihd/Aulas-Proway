@@ -1,0 +1,4 @@
+relacional: MySql, Postgres, Oracle
+não relacional: MongoDB, Firebase
+
+SHOW SCHEMAS;
