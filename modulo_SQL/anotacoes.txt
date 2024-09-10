@@ -1,4 +1,5 @@
 relacional: MySql, Postgres, Oracle
 não relacional: MongoDB, Firebase
 
-SHOW SCHEMAS;
+1. Abrir MySQL Command Line
+2. Senha BD Mysql: admin

@@ -110,20 +110,18 @@ CREATE TABLE pokedex(
     numero_evolucoes INT NOT NULL
 );
 
--- INSERIR DADOS NA POKEDEX
-INSERT INTO pokedex (numero, nome, categoria, tipo1, numero_evolucoes) VALUES
-(25, 'Pikachu', 'Mouse', 'Eletric', 3),
-(54, 'Psyduck', 'Duck', 'Water', 2),
-(101, 'Electrode', 'Ball', 'Eletric', 2),
-(77, 'Ponyta', 'Fire Horse', 'Fire', 2),
-(341, 'Corphish', 'Ruffian', 'Water', 2);
-
+-- INSERINDO DADOS NA TABELA pokedex
 INSERT INTO pokedex (numero, nome, categoria, tipo1, tipo2, numero_evolucoes) VALUES
 (75, 'Graveler', 'Rock', 'Rock', 'Ground', 3),
 (123, 'Scyther', 'Mantis', 'Bug', 'Flying', 2),
 (43, 'Oddish', 'Weed', 'Grass', 'Poison', 3),
 (187, 'Hoppip', 'Cottonweed', 'Grass', 'Flying', 3),
-(214, 'Heracross', 'Single Horn', 'Bug', 'Fighting', 1);
+(214, 'Heracross', 'Single Horn', 'Bug', 'Fighting', 1),
+(25, 'Pikachu', 'Mouse', 'Eletric', NULL, 3),
+(54, 'Psyduck', 'Duck', 'Water', NULL, 2),
+(101, 'Electrode', 'Ball', 'Eletric', NULL, 2),
+(77, 'Ponyta', 'Fire Horse', 'Fire', NULL, 2),
+(341, 'Corphish', 'Ruffian', 'Water', NULL, 2);
 
 -- Consultar todos os pokemons com todas as colunas
 SELECT * FROM pokedex;
@@ -136,4 +134,7 @@ SELECT nome, tipo1, tipo2 FROM pokedex WHERE categoria='grass';
 -- Consultar os pokemons da categoria fantasma com as colunas numero, nome
 SELECT numero, nome FROM pokedex WHERE categoria='ghost';
 -- Consultar os pokemons que contenham mais do 2 evoluções
-SELECT * FROM pokedex WHERE numero_evolucoes=2;
+SELECT * FROM pokedex WHERE numero_evolucoes>=2;
+
+-- MOSTRAR A QUANTIDADE DE LINHAS:
+select count(*) from pokedex;
