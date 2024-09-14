@@ -22,7 +22,6 @@ try:
                 FROM produtos
                 INNER JOIN categorias ON categorias.id = produtos.id_categoria
                 ORDER BY categorias.nome, produtos.nome;
-
             """)
             rows = cursor.fetchall()
             
