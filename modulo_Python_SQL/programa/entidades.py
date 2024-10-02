@@ -4,8 +4,8 @@ class Marca:
         self.nome = nome
         self.cnpj = cnpj
 
-class Modelo:
-    def __init__(self,id:int,marca:str,nome:str):
+class Modelo():
+    def __init__(self,id:int,id_marca:int,nome:str):
         self.id = id
-        self.marca = marca
+        self.id_marca = id_marca
         self.nome = nome

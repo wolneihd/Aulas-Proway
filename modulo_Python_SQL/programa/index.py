@@ -2,6 +2,7 @@ import questionary
 from marcas import menu_marcas
 from modelos import menu_modelos
 
+
 def menu():
     opcoes = ["Marcas", "Modelos", "Sair"]
     menu_escolhido = ""

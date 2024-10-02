@@ -1,6 +1,6 @@
 import questionary
 from repositorios.marca_repositorio import obter_todas_marcas
-from repositorios.modelo_repositorio import cadastrar, obter_todos_modelos
+from repositorios.modelo_repositorio import cadastrar, obter_todos_modelos, delete_modelo, atualizar_modelo
 import os
 from rich.console import Console
 from rich.table import Table
@@ -27,9 +27,9 @@ def menu_modelos():
         elif opcao_escolhida == "Cadastrar":
             inserir_modelo()
         elif opcao_escolhida == "Editar":
-            pass
+            editar_modelo()
         elif opcao_escolhida == "Apagar":
-            pass
+            apagar_modelo()
 
 def inserir_modelo():
     marcas = obter_todas_marcas()
@@ -66,7 +66,50 @@ def consultar_modelos():
     table.add_column("Modelo", justify="center", style="green")
 
     for registro in registros:
-        table.add_row(str(registro.id), registro.marca, registro.nome)
+        table.add_row(str(registro.id), str(registro.id_marca), registro.nome)
 
     console = Console()
     console.print(table)
+
+def apagar_modelo():
+    modelos = obter_todos_modelos()
+
+    if len(modelos) == 0:
+        print("Nenhum modelo cadastrado!")
+        return
+
+    opcoes_para_escolher = []
+    for modelo in modelos:
+        opcao = questionary.Choice(title=modelo.nome, value=modelo.id)
+        opcoes_para_escolher.append(opcao)
+    
+    id_modelo_escolhida = questionary.select(
+        "Escolha qual marca deseja excluir: ",
+        choices=opcoes_para_escolher
+    ).ask()
+
+    delete_modelo(int(id_modelo_escolhida))
+
+
+
+def editar_modelo():
+    modelos = obter_todos_modelos()
+
+    if len(modelos) == 0:
+        print("Nenhum modelo cadastrado!")
+        return
+
+    opcoes_para_escolher = []
+    for modelo in modelos:
+        opcao = questionary.Choice(title=modelo.nome, value=modelo.id)
+        opcoes_para_escolher.append(opcao)
+    
+    id_modelo_escolhida = questionary.select(
+        "Escolha qual marca deseja excluir: ",
+        choices=opcoes_para_escolher
+    ).ask()
+
+    novo_nome = questionary.text("Informe o novo nome do modelo: ").ask()
+    id_marca = 11
+
+    atualizar_modelo(id_modelo_escolhida, id_marca, novo_nome)

@@ -12,32 +12,32 @@ def cadastrar(id_marca: int, nome: str):
     conexao.close()
 
 
-def atualizar(id: int, nome: str):
-    pass
+def atualizar_modelo(id: int, id_marca: int, nome: str):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("UPDATE modelos SET id_marca = %s, nome = %s WHERE id = %s", (id_marca, nome, id))
+    conexao.commit()
+    conexao.close()
 
 
 def obter_todos_modelos() -> List[Modelo]:
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("""
-    SELECT 
-	    modelos.id,
-	    marcas.nome,
-        modelos.nome
-	FROM modelos
-    INNER JOIN marcas ON marcas.id = modelos.id_marca;
-    """)
+    cursor.execute("SELECT * FROM modelos;")
     registros = cursor.fetchall()
+    conexao.close()
 
     listaModelos: List[Modelo] = []
     for registro in registros:
-        id, marca, modelo = registro
-        veiculo = Modelo(id, marca, modelo)
+        id, id_marca, modelo = registro
+        veiculo = Modelo(id, id_marca, modelo)
         listaModelos.append(veiculo)
-
-    conexao.close()
     return listaModelos
 
 
-def apagar(id: int):
-    pass
+def delete_modelo(id: int):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute('DELETE FROM modelos WHERE id = %s', (id,))
+    conexao.commit() 
+    conexao.close() 
