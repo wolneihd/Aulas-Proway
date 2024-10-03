@@ -66,7 +66,7 @@ def consultar_modelos():
     table.add_column("Modelo", justify="center", style="green")
 
     for registro in registros:
-        table.add_row(str(registro.id), str(registro.id_marca), registro.nome)
+        table.add_row(str(registro.id), registro.marca.nome, registro.nome)
 
     console = Console()
     console.print(table)
@@ -105,11 +105,27 @@ def editar_modelo():
         opcoes_para_escolher.append(opcao)
     
     id_modelo_escolhida = questionary.select(
-        "Escolha qual marca deseja excluir: ",
+        "Escolha qual MODELO deseja editar: ",
+        choices=opcoes_para_escolher
+    ).ask()
+    
+    ## selecionar marca:
+    marcas = obter_todas_marcas()
+
+    if len(marcas) == 0:
+        print("Nenhuma marca cadastrada!")
+        return
+
+    opcoes_para_escolher = []
+    for marca in marcas:
+        opcao = questionary.Choice(title=marca.nome, value=marca.id)
+        opcoes_para_escolher.append(opcao)
+    
+    id_marca = questionary.select(
+        "Escolha a MARCA que deseja editar",
         choices=opcoes_para_escolher
     ).ask()
 
     novo_nome = questionary.text("Informe o novo nome do modelo: ").ask()
-    id_marca = 11
 
     atualizar_modelo(id_modelo_escolhida, id_marca, novo_nome)

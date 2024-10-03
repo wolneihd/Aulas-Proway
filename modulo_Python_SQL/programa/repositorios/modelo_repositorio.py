@@ -1,7 +1,7 @@
 from typing import List
 
 from database import conectar
-from entidades import Modelo
+from entidades import Modelo, Marca
 
 
 def cadastrar(id_marca: int, nome: str):
@@ -23,14 +23,24 @@ def atualizar_modelo(id: int, id_marca: int, nome: str):
 def obter_todos_modelos() -> List[Modelo]:
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM modelos;")
+    cursor.execute("""
+    SELECT 
+        modelos.id,
+        modelos.nome,
+        modelos.id_marca,
+        marcas.id,
+        marcas.nome,
+        marcas.cnpj
+        FROM modelos
+        INNER JOIN marcas ON marcas.id = modelos.id_marca;
+    """)
     registros = cursor.fetchall()
     conexao.close()
 
     listaModelos: List[Modelo] = []
     for registro in registros:
-        id, id_marca, modelo = registro
-        veiculo = Modelo(id, id_marca, modelo)
+        id, nome_modelo, id_marca, marcas_id, nome_marca, cnpj = registro
+        veiculo = Modelo(id, Marca(id_marca, nome_marca, cnpj),nome_modelo)
         listaModelos.append(veiculo)
     return listaModelos
 
