@@ -2,9 +2,10 @@ import questionary
 from marcas import menu_marcas
 from modelos import menu_modelos
 from cor import menu_cores
+from proprietario import menu_proprietarios
 
 def menu():
-    opcoes = ["Marcas", "Modelos", "Cores", "Sair"]
+    opcoes = ["Marcas", "Modelos", "Cores","Proprietarios", "Sair"]
     menu_escolhido = ""
     while menu_escolhido != "Sair":
         menu_escolhido = questionary.select(
@@ -16,6 +17,8 @@ def menu():
             menu_modelos()
         elif menu_escolhido == "Cores":
             menu_cores()
+        elif menu_escolhido == "Proprietarios":
+            menu_proprietarios()
 
 
 if __name__ == "__main__":

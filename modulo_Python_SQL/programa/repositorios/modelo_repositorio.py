@@ -1,5 +1,4 @@
 from typing import List
-
 from database import conectar
 from entidades import Modelo, Marca
 
