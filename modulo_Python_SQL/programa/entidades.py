@@ -30,3 +30,27 @@ class Proprietario():
         self.cep = cep
         self.numero = numero
         self.complemento = complemento
+
+class Versao():
+    def __init__(self, id: int, modelo: Modelo, nome: str, motor: str):
+        self.id = id
+        self.modelo = modelo
+        self.nome = nome
+        self.motor = motor
+
+class Veiculo():
+    def __init__(self, id:int, proprietario: Proprietario, versao: Versao, cor: Cor, preco_inicial: float, preco_fipe: float,
+                 km: int, chassi: str, placa:str, renavam: str, ano_fabricacao:int, ano_modelo:int, novo: bool) -> None:
+        self.id = id
+        self.proprietario = proprietario  
+        self.versao = versao  
+        self.cor = cor  
+        self.preco_inicial = preco_inicial
+        self.preco_fipe = preco_fipe
+        self.km = km
+        self.chassi = chassi
+        self.placa = placa
+        self.renavam = renavam
+        self.ano_fabricacao = ano_fabricacao
+        self.ano_modelo = ano_modelo
+        self.novo = novo
