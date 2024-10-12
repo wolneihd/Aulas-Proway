@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
 </head>
 <body>
-    <form action="/sistema/calcular">
+    <form action="/sistema/media">
+        <label for="numero01">Nome</label>
+        <input type="text" id="nome" name="nome"><br><br>
         <label for="numero01">numero01</label>
         <input type="number" id="numero01" name="numero01"><br><br>
         <label for="numero02">numero02</label>
         <input type="number" id="numero02" name="numero02"><br><br>
-        <button type="submit">Salvar</button>
+        <label for="numero03">numero03</label>
+        <input type="number" id="numero03" name="numero03"><br><br>
+        <button type="submit">Gerar média!</button>
     </form>
 </body>
 </html>

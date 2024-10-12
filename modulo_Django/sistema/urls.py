@@ -7,4 +7,6 @@ urlpatterns = [
     path("/contato", views.contato),
     path("/calculadora", views.calculadora),
     path("/calcular", views.calcular),
+    path("/aluno", views.notas_aluno),
+    path("/media", views.calcular_media),
 ]

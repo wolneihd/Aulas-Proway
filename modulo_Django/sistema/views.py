@@ -24,3 +24,23 @@ def calcular(request: HttpRequest) -> HttpResponse:
     numero02 = request.GET.get("numero02")
     soma = int(numero01) + int(numero02)
     return render(request, "resultado.html",context={"soma":soma}) 
+
+def notas_aluno(request: HttpRequest) -> HttpResponse:
+    return render(request, "aluno.html",context={})
+
+def calcular_media(request: HttpRequest) -> HttpResponse:
+    numero01 = request.GET.get("numero01")
+    numero02 = request.GET.get("numero02")
+    numero03 = request.GET.get("numero03")
+    nome = request.GET.get("nome")
+    media = (int(numero01) + int(numero02) + int(numero03))/3
+    if (media >= 7):
+        texto = "aprovado"
+    else:
+        texto =  "reprovado"
+    contexto = {
+        "media": media, 
+        "nome": nome,
+        "texto": texto
+    }
+    return render(request, "media.html",context=contexto) 
