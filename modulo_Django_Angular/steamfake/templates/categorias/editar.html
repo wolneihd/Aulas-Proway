@@ -2,19 +2,20 @@
 
 {% block conteudo %} 
 <h1 class="title">
-    Cadastro de Categoria
+    Editar Categoria
 </h1>
-<form action="/steamfake/categoria/cadastrar" method="post">
+<form action="/steamfake/categoria/editado/{{categoria.pk}}" method="post">
     {% csrf_token %}
     <div class="field">
         <label class="label">Nome:</label>
         <div class="control">
-            <input class="input" type="text" placeholder="Digite o nome da categoria" name="nome">
+            <input class="input" type="text" placeholder="Digite o nome da categoria" name="nome"
+                value="{{categoria.nome}}">
         </div>
     </div>
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link">Cadastrar</button>
+            <button class="button is-link">Salvar</button>
         </div>
     </div>
 </form>

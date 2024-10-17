@@ -2,30 +2,32 @@
 
 {% block conteudo %} 
 <h1 class="title">
-  Lista de Categorias
+  Lista de Tags
 </h1>
-<a href="/steamfake/categoria/cadastro" class="button is-link mb-2 is-pulled-right">
+<a href="/steamfake/tag/cadastro" class="button is-link mb-2 is-pulled-right">
   <span class="icon is-small">
     <i class="fas fa-plus"></i>
   </span>
-  <span>Nova Categoria</span>
+  <span>Nova Tag</span>
 </a>
 <table class="table is-bordered is-striped is-hoverable is-fullwidth">
   <thead>
     <tr class="is-link">
       <th>Código</th>
       <th>Nome</th>
-      <th>Excluir</th>
+      <th>Descrição</th>
+      <th>Ação</th>
     </tr>
   </thead>
   <tbody>
-    {% for categoria in categorias %}
+    {% for tag in tags %}
     <tr>
-      <td>{{ categoria.pk }}</td>
-      <td>{{ categoria.nome }}</td>
+      <td>{{ tag.pk }}</td>
+      <td>{{ tag.nome }}</td>
+      <td>{{ tag.descricao }}</td>
       <td>
-        <a href="/steamfake/categoria/editar/{{categoria.pk}}">Editar</a>
-        <a href="/steamfake/categoria/apagar/{{categoria.pk}}">Apagar</a>
+        <a href="/steamfake/tag/editar/{{tag.pk}}">Editar</a>
+        <a href="/steamfake/tag/apagar/{{tag.pk}}">Apagar</a>
       </td>
     </tr>
     {% endfor %}
