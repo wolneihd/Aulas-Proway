@@ -1,7 +1,11 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.conf import settings
 
-from steamfake.models import Categoria, Tag
+from steamfake.forms import JogoForm, JogoEditarForm
+from steamfake.models import Categoria, Tag, Jogo
+
+import os
 
 def home(request: HttpRequest) -> HttpResponse:
     return render(request, "home.html")
@@ -74,3 +78,53 @@ def tag_editado(request: HttpRequest, id:int) -> HttpRequest:
     tag.descricao = descricao
     tag.save()
     return redirect("tags")
+
+def jogo_index(request: HttpRequest) -> HttpResponse:
+    jogos = Jogo.objects.all()
+    return render(request, "jogos/index.html", context={"jogos":jogos})
+
+def jogo_cadastro(request: HttpRequest) -> HttpResponse:
+    if request.method == "GET":
+        form = JogoForm()
+        return render(request, "jogos/cadastro.html", context={"form":form})
+    else:
+        form = JogoForm(request.POST, request.FILES)
+        if form.is_valid():
+            jogo = Jogo()
+            jogo.nome = form.cleaned_data["nome"]
+            jogo.categoria = form.cleaned_data["categoria"]
+            jogo.valor = form.cleaned_data["valor"]
+            jogo.data_lancamento = form.cleaned_data["data_lancamento"]
+            jogo.desenvolvedora = form.cleaned_data["desenvolvedora"]
+            jogo.descricao = form.cleaned_data["descricao"]
+            jogo.foto_capa = form.cleaned_data["foto_capa"]
+            jogo.save()
+            return redirect("jogos")
+        return render(request, "jogos/cadastro.html", context={"form":form})
+    
+def jogo_apagar(request: HttpRequest, id:int) -> HttpResponse:
+    jogo = Jogo.objects.get(pk=id)
+    jogo.delete()
+    return redirect("jogos")
+
+def jogo_editar(request: HttpRequest, id:int) -> HttpResponse:
+    jogo = Jogo.objects.get(pk = id)
+    if request.method == 'GET':
+        form = JogoEditarForm(initial=jogo.__dict__)
+        form.initial["categoria"] = jogo.categoria
+        form.initial["data_lancamento"] = jogo.data_lancamento.strftime("%Y-%m-%d")
+        return render(request, "jogos/editar.html", context={"form": form, "jogo":jogo})
+    else:
+        form = JogoEditarForm(request.POST, request.FILES)
+        if form.is_valid():
+            jogo.nome = form.cleaned_data["nome"]
+            jogo.categoria = form.cleaned_data["categoria"]
+            jogo.valor = form.cleaned_data["valor"]
+            jogo.data_lancamento = form.cleaned_data["data_lancamento"]
+            jogo.desenvolvedora = form.cleaned_data["desenvolvedora"]
+            jogo.descricao = form.cleaned_data["descricao"]
+            jogo.foto_capa = form.cleaned_data["foto_capa"]
+            jogo.save()
+            return redirect("jogos")
+        return render(request, "jogos/editar.html", context={"form": form})
+        

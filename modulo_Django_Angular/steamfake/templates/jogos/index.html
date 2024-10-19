@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block conteudo %} 
+<h1 class="title">
+  Lista de Jogos
+</h1>
+<a href="/steamfake/jogo/cadastro" class="button is-link mb-2 is-pulled-right">
+  <span class="icon is-small">
+    <i class="fas fa-plus"></i>
+  </span>
+  <span>Novo Jogo</span>
+</a>
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr class="is-link">
+      <th>Código</th>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Categoria</th>
+      <th>Valor</th>
+      <th>Data de Lançamento</th>
+      <th>Descrição</th>
+      <th>Desenvolvedora</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for jogo in jogos %}
+    <tr>
+      <td>{{ jogo.pk }}</td>
+      <td>
+        {% if jogo.foto_capa and jogo.foto_capa.url %}
+          <img src="{{jogo.foto_capa.url}}" class="image is-128x128">
+        {% else %}
+          sem imagem
+        {% endif %}
+      </td>
+      <td>{{ jogo.nome }}</td>
+      <td>{{ jogo.categoria }}</td>
+      <td>{{ jogo.valor }}</td>
+      <td>{{ jogo.data_lancamento }}</td>
+      <td>{{ jogo.descricao }}</td>
+      <td>{{ jogo.desenvolvedora }}</td>
+      <td>
+        <a href="/steamfake/jogo/editar/{{jogo.pk}}">Editar</a>
+        <a href="/steamfake/jogo/apagar/{{jogo.pk}}">Apagar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
