@@ -7,11 +7,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
+import { PanelModule } from 'primeng/panel';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputTextModule, FormsModule, ButtonModule, ToastModule, RippleModule, PasswordModule],
+  imports: [InputTextModule, FormsModule, ButtonModule, ToastModule, RippleModule, PasswordModule, PanelModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [MessageService]
@@ -31,5 +32,9 @@ export class LoginComponent {
     } else {
       this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Login ou senha inválida'});
     }
+  }
+
+  redirecionarCadastrar() {
+    this.router.navigate(["/cadastrar"])
   }
 }
