@@ -6,8 +6,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { CategoriaService } from '../../services/categoria.service';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 interface Categoria {
   id: number,
@@ -17,17 +18,31 @@ interface Categoria {
 @Component({
   selector: 'app-lista-categoria',
   standalone: true,
-  imports: [TableModule, ButtonModule, DialogModule, InputTextModule, FormsModule, NavbarComponent, ToastModule],
+  imports: [
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    FormsModule,
+    NavbarComponent,
+    ToastModule,
+    ConfirmDialogModule
+  ],
   templateUrl: './lista-categoria.component.html',
   styleUrl: './lista-categoria.component.css',
-  providers: [MessageService]
+  providers: [MessageService, ConfirmationService]
 })
 export class ListaCategoriaComponent {
   nome: string = "";
   categorias!: Categoria[];
   modalApresentada: boolean = false;
+  idParaEditar!: number | undefined;
 
-  constructor(private categoriaService: CategoriaService, private messageService: MessageService) { }
+  constructor(
+    private categoriaService: CategoriaService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit() {
     this.carregarCategorias()
@@ -48,19 +63,59 @@ export class ListaCategoriaComponent {
   }
 
   salvar() {
+    if(this.idParaEditar)
+      this.cadastrar();
+    else
+      this.editar();
+  }
+
+  private cadastrar() {
     this.categoriaService.cadastrar(this.nome).subscribe({
       next: () => {
-        this.apresentarMensagemSucesso("Cadastrado com sucesso")
+        this.apresentarMensagemSucesso("Cadastrado com sucesso");
         this.modalApresentada = false;
         this.nome = "";
-        this.carregarCategorias()
+        this.carregarCategorias();
       },
       error: erro => {
         console.error(erro);
-        this.apresentarMensagemErro("Erro ao cadastrar")
+        this.apresentarMensagemErro("Erro ao cadastrar");
       }
-    })
+    });
   }
+
+  private editar() {
+    this.categoriaService.editar(this.idParaEditar!, this.nome).subscribe({
+      next: () => {
+        this.apresentarMensagemSucesso("Editado com sucesso");
+        this.modalApresentada = false;
+        this.nome = "";
+        this.idParaEditar = undefined
+        this.carregarCategorias();
+      },
+      error: erro => {
+        console.error(erro);
+        this.apresentarMensagemErro("Erro ao editar categoria");
+      }
+    });
+  }
+
+  confirmacaoExclusao(event: Event, categoria: Categoria) {
+    this.confirmationService.confirm({
+        target: event.target as EventTarget,
+        message: `Deseja realmente apagar a categoria ${categoria.nome}?`,
+        header: 'Confirmação de exclusão',
+        icon: 'pi pi-info-circle',
+        acceptButtonStyleClass:"p-button-danger p-button-text",
+        rejectButtonStyleClass:"p-button-text p-button-text",
+        acceptIcon:"none",
+        rejectIcon:"none",
+
+        accept: () => {
+            this.apagar(categoria.id)
+        }
+    });
+}
 
   apagar(id: number) {
     this.categoriaService.apagar(id).subscribe({
@@ -81,5 +136,19 @@ export class ListaCategoriaComponent {
 
   apresentarMensagemErro(mensagem: string) {
     this.messageService.add({ severity: 'error', summary: 'Erro', detail: mensagem });
+  }
+
+  carregarModalParaEditar(id: number) {
+    this.categoriaService.obterPorId(id).subscribe({
+      next: categoria => {
+        this.nome = categoria.nome
+        this.abrirModal()
+        this.idParaEditar = id
+      },
+      error: erro => {
+        console.error(erro)
+        this.apresentarMensagemErro("Não foi possível carregar a categoria para editar")
+      }
+    })
   }
 }

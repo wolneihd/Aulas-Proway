@@ -10,7 +10,7 @@ export class CategoriaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  obterTodas() : Observable<Categoria[]>{
+  obterTodas(): Observable<Categoria[]> {
     return this.httpClient.get<Categoria[]>("http://127.0.0.1:8000/api/categoria/")
   }
 
@@ -23,5 +23,16 @@ export class CategoriaService {
 
   apagar(id: number): Observable<any> {
     return this.httpClient.delete(`http://127.0.0.1:8000/api/categoria/${id}/`)
+  }
+
+  obterPorId(id: number): Observable<Categoria> {
+    return this.httpClient.get<Categoria>(`http://127.0.0.1:8000/api/categoria/${id}/`)
+  }
+
+  editar(id: number, nome: string): Observable<any> {
+    let dados = {
+      nome
+    }
+    return this.httpClient.put(`http://127.0.0.1:8000/api/categoria/${id}/`, dados);
   }
 }
