@@ -1,0 +1,10 @@
+INSERT INTO api_categoria (nome) VALUES ('Ação');
+INSERT INTO api_categoria (nome) VALUES ('Aventura');
+INSERT INTO api_categoria (nome) VALUES ('RPG');
+INSERT INTO api_categoria (nome) VALUES ('Estratégia');
+INSERT INTO api_categoria (nome) VALUES ('Simulação');
+INSERT INTO api_categoria (nome) VALUES ('Esporte');
+INSERT INTO api_categoria (nome) VALUES ('Tiro em Primeira Pessoa');
+INSERT INTO api_categoria (nome) VALUES ('Plataforma');
+INSERT INTO api_categoria (nome) VALUES ('Horror');
+INSERT INTO api_categoria (nome) VALUES ('Multiplayer Online');

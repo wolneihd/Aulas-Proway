@@ -63,7 +63,7 @@ export class ListaCategoriaComponent {
   }
 
   salvar() {
-    if(this.idParaEditar)
+    if(!this.idParaEditar)
       this.cadastrar();
     else
       this.editar();
