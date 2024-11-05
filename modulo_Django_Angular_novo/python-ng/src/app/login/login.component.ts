@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
+import { AutentificacaoService } from '../services/autentificacao.service';
 
 @Component({
   selector: 'app-login',
@@ -32,19 +33,20 @@ export class LoginComponent {
     private messageService: MessageService,
     // Necessário para poder redirecionar para outra rota
     private router: Router,
+    private autentificacaoService: AutentificacaoService
   ) { }
 
   enviar() {
-    // Verificar se o login e senha estão corretos
-    if (this.login == "admin" && this.senha == "1234") {
-      // Redirecionar para a tela da home
-      this.router.navigate(["/home"])
-    } else if (this.login == "gamer" && this.senha == "batatinha") {
-      this.router.navigate(["/grid"])
-    } else {
-      // Apresentar mensagem que o login/senha estão inválidos
-      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Login e/ou Senha inválidas' });
-    }
+    this.autentificacaoService.autenticar(this.login, this.senha).subscribe({
+      next: dado => {
+        console.log(dado);
+        this.messageService.add({severity: 'success', summary:"Deu boa", detail: 'Login realizado com sucesso!'});
+      },
+      error: erro => {
+        console.error(erro)
+        this.messageService.add({severity: 'error', summary:"Erro", detail: 'Login e/ou senha inválidos!'})
+      }
+    })
   }
 
   redirecionarCadastrar() {
