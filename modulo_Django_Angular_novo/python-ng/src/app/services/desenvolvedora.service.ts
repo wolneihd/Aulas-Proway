@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Desenvolvedora } from '../models/desenvolvedora';
+import { enviroment } from '../enviroments/enviroment';
+
+const apiUrl = enviroment.apiUrl;
 
 @Injectable({
   providedIn: 'root'

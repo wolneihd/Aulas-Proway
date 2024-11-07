@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Plataforma } from '../models/plataforma';
+import { enviroment } from '../enviroments/enviroment';
+
+const apiUrl = enviroment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
