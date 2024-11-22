@@ -4,15 +4,9 @@ import time
 import pandas
 import json
 
-def contador_tempo(segundos: int):
-    for i in range(1, segundos+1):
-        time.sleep(1)
-        print(f'Tempo de espera para abrir e carregar a pagina: {segundos} | contador: {i}')
-
 # abrindo a página
 print('Abrindo página RPA CHALLENGE')
 webbrowser.open('https://rpachallenge.com/')
-contador_tempo(8)
 
 class Usuario:
     def __init__(self, first_name, last_name, address, email, company, phone, role):
@@ -41,9 +35,9 @@ def buscar_campo(nome_campo:str, informacao_campo:str, just_click:bool):
             pyautogui.typewrite(informacao_campo)            
         elif buscar_campo and just_click == True:
             pyautogui.click(buscar_campo)
+            return True
         else:
             print(f'Campo {nome_campo} não localizado | informação não adicionada: {informacao_campo}')
-            return
     except Exception as error:
         print(f"Erro ao inserir dados {nome_campo} | informação não adicionada: {informacao_campo}")
         print('Erro: ', error)
@@ -62,8 +56,15 @@ def preencher_formulario(usuario: Usuario):
     buscar_campo('submit', None, True)
 
 if __name__ == "__main__":
-    # START o jogo
-    buscar_campo('start', None, True)
+    # Windows pode demorar para carregar a página, logo 1 tentiva por segundo para achar o START. 
+    for i in range(1, 10):
+        time.sleep(1)
+        localizado = buscar_campo('start', None, True)
+        if localizado == True:
+            print('campo start localizado! Passando para a próxima etapa.')
+            break
+        else:
+            print(f'Tentativa nr. {i} - Campo START ainda não localizado.')
 
     # iniciar preencher os dados
     lista_usuarios = dados_usuario()
