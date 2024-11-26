@@ -31,14 +31,36 @@ async def get_weather(request: Request, city: str = Form(...)):
     logger.info(f"Solicitação de previsão do tempo para a cidade: {city}")
     try:
         # Passo 1: Obter latitude e longitude da cidade
-        print(city)
         response = requests.get(GEOCODE_URL, params= {'q':city, 'appid': API_KEY})
         data = response.json()
-        print(data)
         
+        lat = data[0]['lat']
+        lon = data[0]['lon']
+
         # Passo 2: Obter dados do tempo usando latitude e longitude
-        
+        response = requests.get(WEATHER_URL, params= {
+            'lat': lat, 
+            'lon': lon,
+            'appid': API_KEY,
+            'lang': 'pt'
+            })
+        data = response.json()
+
         # Extração de dados relevantes para exibição
+        for temperatura in data['weather']:
+            description = temperatura['description']
+
+        def converter_para_celcius(kelvin: float):
+            conversao = kelvin - 273.15
+            conversao = f'{conversao:.2f}'
+            return conversao
+
+        weather = {
+            'temp': converter_para_celcius(data['main']['temp']),
+            'description': description,
+            'humidity': data['main']['humidity'],
+            'wind_speedy': data['wind']['speed']
+        }
 
         # Passar dados relevantes para o template
         return templates.TemplateResponse(
