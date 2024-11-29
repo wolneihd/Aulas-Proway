@@ -1,83 +1,46 @@
-import pyautogui
-import webbrowser
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import time
-import pandas
-import json
+from bs4 import BeautifulSoup
 
-# abrindo a página
-print('Abrindo página RPA CHALLENGE')
-webbrowser.open('https://rpachallenge.com/')
+# Configurações para o Chrome em modo headless
+chrome_options = Options()
+chrome_options.add_argument("--headless") 
+chrome_options.add_argument("--disable-gpu")  
 
-class Usuario:
-    def __init__(self, first_name, last_name, address, email, company, phone, role):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.address = address
-        self.email = email
-        self.company = company
-        self.phone = phone
-        self.role = role
+driver = webdriver.Chrome(service=Service("./chromedriver.exe")  , options=chrome_options)
 
-def dados_usuario():
-    dados = pandas.read_excel('challenge.xlsx')
-    dados_json = dados.to_json(orient='records')
-    lista_usuarios = json.loads(dados_json)
-    return lista_usuarios    
+# Abre o site desejado
+url = 'https://rpachallenge.com/'
+driver.get(url)
 
-def buscar_campo(nome_campo:str, informacao_campo:str, just_click:bool):
-    try:
-        time.sleep(1)
-        campo = f'{nome_campo}.png'
-        buscar_campo = pyautogui.locateOnScreen(campo, confidence=0.8)
+# Mantém o navegador aberto por 10 segundos
+driver.implicitly_wait(10)
+html_completo = driver.page_source
 
-        if buscar_campo and just_click == False:
-            pyautogui.click(buscar_campo)
-            pyautogui.typewrite(informacao_campo)            
-        elif buscar_campo and just_click == True:
-            pyautogui.click(buscar_campo)
-            return True
-        else:
-            print(f'Campo {nome_campo} não localizado | informação não adicionada: {informacao_campo}')
-    except Exception as error:
-        print(f"Erro ao inserir dados {nome_campo} | informação não adicionada: {informacao_campo}")
-        print('Erro: ', error)
+soup = BeautifulSoup(html_completo, features='html.parser')
+all_inputs = soup.find_all("input")
 
-def preencher_formulario(usuario: Usuario):  
- 
-    print(f'Preenchendo os campos do(a) usuário(a): {usuario.first_name}')
+for input in all_inputs:
+    if 'labelFirstName' in str(input):
+        print(input)
 
-    buscar_campo('address', usuario.address, False)
-    buscar_campo('email', usuario.email, False)
-    buscar_campo('first_name', usuario.first_name, False)
-    buscar_campo('last_name', usuario.last_name, False)
-    buscar_campo('role', usuario.role, False)
-    buscar_campo('phone', str(usuario.phone), False)
-    buscar_campo('company', usuario.company, False)
-    buscar_campo('submit', None, True)
+# first_name = driver.find_element(By.XPATH, "/html/body/app-root/div[2]/app-rpa1/div/div[2]/form/div/div[5]/rpa1-field/div/input")
+# first_name.send_keys('wolnei')
 
-if __name__ == "__main__":
-    # Windows pode demorar para carregar a página, logo 1 tentiva por segundo para achar o START. 
-    for i in range(1, 10):
-        time.sleep(1)
-        localizado = buscar_campo('start', None, True)
-        if localizado == True:
-            print('campo start localizado! Passando para a próxima etapa.')
-            break
-        else:
-            print(f'Tentativa nr. {i} - Campo START ainda não localizado.')
+# campo_login = driver.find_element(By.ID, "usuario")
+# campo_senha = driver.find_element(By.ID, "senha")
+# botao_login = driver.find_element(By.XPATH, "/html/body/div/form/button")
 
-    # iniciar preencher os dados
-    lista_usuarios = dados_usuario()
-    for usuario in lista_usuarios:
-        user = Usuario(
-            usuario['First Name'], 
-            usuario['Last Name'], 
-            usuario['Address'], 
-            usuario['Email'], 
-            usuario['Company Name'], 
-            usuario['Phone Number'], 
-            usuario['Role in Company'])
-        preencher_formulario(user)
+# time.sleep(2)
+# campo_login.send_keys('ALUNOS')
+# campo_senha.send_keys('SUPERDEV')
 
-    print('Preenchimento finalizado!')
-    
+# time.sleep(2)
+# botao_login.click()
+
+# Fecha o navegador
+time.sleep(2)
+driver.quit()
