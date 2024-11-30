@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
 from contador import contador_segundos
@@ -56,16 +55,16 @@ try:
     valor_ML = valor_ML.replace('.','')
     valor_ML = int(valor_ML)
 
-    print('MERCADO LIVRE: ', valor_ML)
+    print('Valor ML: ', valor_ML)
 
     nome_modelo_ML = driver.find_element(By.CLASS_NAME, 'ui-pdp-title')
     nome_modelo_ML = str(nome_modelo_ML.text)
-    print(nome_modelo_ML)
+    print('Produto ML', nome_modelo_ML)
 
 except Exception as error:
     print('erro: ', error)
 
 with open('motorola_g54.csv', mode='w', encoding="utf-8") as arquivo:
-    arquivo.write(f'nome do modelo,valor\n')
-    arquivo.write(f'{nome_modelo_amazon},{valor_amazon}\n')
-    arquivo.write(f'{nome_modelo_ML},{valor_ML}\n')
+    arquivo.write(f'loja,nome do modelo,valor\n')
+    arquivo.write(f'Amazon,{nome_modelo_amazon},{valor_amazon}\n')
+    arquivo.write(f'Mercado Livre,{nome_modelo_ML},{valor_ML}\n')
